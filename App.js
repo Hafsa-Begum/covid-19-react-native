@@ -4,10 +4,10 @@ import { useFonts } from 'expo-font';
 import { colors } from './src/theme/colors';
 import { spacings } from './src/theme/spacings';
 import Text from './src/components/text/text';
-import { Entypo, Ionicons, MaterialCommunityIcons, FontAwesome, Feather } from '@expo/vector-icons';
+import { Entypo, Ionicons, MaterialCommunityIcons, FontAwesome } from '@expo/vector-icons';
 import { PREV_LIST } from "./src/data/data"
 import { OwnTestSVG } from './src/svg';
-import { LinearGradient } from 'react-native-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const Button = ({ children, bgColor }) => {
   return (
@@ -72,22 +72,27 @@ export default function App() {
 
             </FlatList>
           </View>
-          {/* <LinearGradient
-            colors={['#56549E', '#AEA1E5']}
-            style={{
-              flex: 1,
-            }}
-          > */}
-          <View style={styles.ownTest}>
-            <View style={{ flex: 1, marginTop: -spacings[3], }}>
-              <OwnTestSVG />
-            </View>
-            <View style={{ flex: 2, marginLeft: spacings[4] }}>
-              <Text preset='h4'>Do your own test!</Text>
-              <Text style={{ marginTop: spacings[4] }}>Follow the instructions to do your own test.</Text>
-            </View>
+          <View style={{ height: 150, marginTop: spacings[4] }}>
+            <LinearGradient
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              colors={['#AEA1E5', '#56549E']}
+              style={[styles.ownTest, {
+                flex: 1,
+
+              }]}
+            >
+
+              <View style={{ flex: 1, marginTop: -spacings[3], }}>
+                <OwnTestSVG height={150} />
+              </View>
+              <View style={{ flex: 2, marginLeft: spacings[4] }}>
+                <Text preset='h4' style={{ color: colors.white }}>Do your own test!</Text>
+                <Text style={{ marginTop: spacings[2], color: colors.white }}>Follow the instructions to do your own test.</Text>
+              </View>
+            </LinearGradient>
           </View>
-          {/* </LinearGradient> */}
+
         </View>
       </View>
     </SafeAreaView>
@@ -157,7 +162,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#56549E',
     paddingHorizontal: spacings[3],
     paddingBottom: spacings[5],
     borderRadius: spacings[6]

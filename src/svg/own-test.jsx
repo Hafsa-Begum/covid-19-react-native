@@ -9,10 +9,10 @@ import Svg, {
     Rect,
 } from "react-native-svg";
 
-const SVGComponent = (props) => (
+const SVGComponent = (props, height) => (
     <Svg
         width={112}
-        height={116}
+        height={height}
         viewBox="0 0 112 116"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
